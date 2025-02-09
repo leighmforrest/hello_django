@@ -9,6 +9,7 @@ jobs:
       - name: push repo via scp
         uses: appleboy/scp-action@v0.1.7
         with:
+          debug: true
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
