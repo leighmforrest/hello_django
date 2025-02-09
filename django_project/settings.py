@@ -1,5 +1,4 @@
 import environ
-import os
 from pathlib import Path
 
 
@@ -19,7 +18,6 @@ DEBUG = env("DJANGO_DEBUG", default=False)
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 SITE_ID = env.int("SITE_ID", default=1)
 S3 = env.bool("S3", default=False)
-print(f"DEBUG: {DEBUG}")
 
 DJANGO_APPS = [
     "django.contrib.admin",
@@ -146,4 +144,14 @@ if DEBUG:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
     INTERNAL_IPS = ['127.0.0.1', 'localhost']
 else:
-    pass
+    # PLACE SETTINGS FOR PRODUCTION DOWN HERE
+    # EMAIL SETTINGS
+    EMAIL_BACKEND = env.str(
+        "EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend"
+    )
+    EMAIL_HOST = env.str("EMAIL_HOST", default="smtp.gmail.com")
+    EMAIL_PORT = env.int("EMAIL_PORT", default=587)
+    EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS", default=True)
+    EMAIL_HOST_USER = env.str("EMAIL_HOST_USER", default="")
+    EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD", default="")
+    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
