@@ -1,4 +1,4 @@
-name: Hello Django
+name: Polls
 on: [push]
 jobs:
   deploy:
@@ -15,17 +15,3 @@ jobs:
           port: 22
           source: "."
           target: ${{ secrets.APP_DIRECTORY }}
-
-        uses: appleboy/ssh-action@v0.1.7
-        with:
-            host: ${{ secrets.SERVER_IP }}
-            username: ${{ secrets.USERNAME }}
-            key: ${{ secrets.PRIVATE_KEY }}
-            port: 22
-            script: | 
-              cd ${{ secrets.APP_DIRECTORY }}
-              source .venv/bin/activate
-              pip install -r requirements.txt
-              ./manage.py migrate
-              python manage.py collectstatic --noinput --clear
-              deactivate
