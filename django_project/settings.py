@@ -5,7 +5,7 @@ from pathlib import Path
 
 env = environ.Env(
     # set casting, default value
-    DEBUG=(bool, False)
+    DJANGO_DEBUG=(bool, False)
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -15,11 +15,11 @@ env.read_env(BASE_DIR / ".env")
 
 # CORE SETTINGS
 SECRET_KEY = env("SECRET_KEY")
-DEBUG = env.bool("DEBUG", default=False)
+DEBUG = env("DJANGO_DEBUG", default=False)
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 SITE_ID = env.int("SITE_ID", default=1)
 S3 = env.bool("S3", default=False)
-
+print(f"DEBUG: {DEBUG}")
 
 DJANGO_APPS = [
     "django.contrib.admin",
@@ -145,6 +145,5 @@ AUTHENTICATION_BACKENDS = (
 if DEBUG:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
     INTERNAL_IPS = ['127.0.0.1', 'localhost']
-
 else:
     pass

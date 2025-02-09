@@ -10,6 +10,7 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
+    print("JEKK JEKK JEKK")
     urlpatterns += [
         path("__debug__/", include(debug_toolbar.urls)),
         ]
