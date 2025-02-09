@@ -31,14 +31,12 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'allauth',
-    'allauth.account',
+    "allauth",
+    "allauth.account",
+    "debug_toolbar",
 ]
 
-LOCAL_APPS = [
-    "apps.accounts",
-    "apps.hello"
-]
+LOCAL_APPS = ["apps.accounts", "apps.hello"]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -51,6 +49,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "django_project.urls"
@@ -131,7 +130,7 @@ ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_LOGIN_METHODS = {'email'}
+ACCOUNT_LOGIN_METHODS = {"email"}
 ACCOUNT_UNIQUE_EMAIL = True
 LOGIN_REDIRECT_URL = "hello:index"
 ACCOUNT_LOGOUT_REDIRECT_URL = "hello:index"
@@ -143,5 +142,7 @@ AUTHENTICATION_BACKENDS = (
 # DEBUG SETTINGS
 if DEBUG:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    INTERNAL_IPS = ['127.0.0.1', 'localhost']
+
 else:
     pass
