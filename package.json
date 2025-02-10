@@ -1,0 +1,26 @@
+{
+  "name": "hello_django",
+  "version": "1.0.0",
+  "description": "A boilerplate Django project for you! Uses a custom user, pytest, django-pytest.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "watch:css": "npx tailwindcss -i ./static/src/styles.css -o ./static/dist/styles.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leighmforrest/hello_django.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leighmforrest/hello_django/issues"
+  },
+  "homepage": "https://github.com/leighmforrest/hello_django#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

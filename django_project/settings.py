@@ -4,7 +4,7 @@ from pathlib import Path
 
 env = environ.Env(
     # set casting, default value
-    DJANGO_DEBUG=(bool, False)
+    DEBUG=(bool, False)
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -112,7 +112,7 @@ USE_TZ = True
 
 # STATIC FILE SETTINGS
 STATIC_URL = "static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_DIRS = [BASE_DIR / "static",]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 

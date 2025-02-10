@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* HAMBURGER STYLE */
+.hamburger {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Hamburger Animation */
+.open .line-1 {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.open .line-2 {
+    opacity: 0;
+}
+
+.open .line-3 {
+    transform: translateY(-18px) rotate(-45deg);
+}
+
+/* Mobile Menu Styling */
+#nav-links {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* When menu is open */
+#nav-links.active {
+    opacity: 1;
+    max-height: 500px; /* Adjust as needed */
+}
