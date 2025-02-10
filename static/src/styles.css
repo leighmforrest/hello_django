@@ -24,18 +24,6 @@
     transform: translateY(-18px) rotate(-45deg);
 }
 
-/* Mobile Menu Styling */
-#nav-links {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-/* When menu is open */
-#nav-links.active {
-    opacity: 1;
-    max-height: 500px; /* Adjust as needed */
+.brand {
+    white-space: nowrap; /* Prevents the brand from wrapping to the next line */
 }
