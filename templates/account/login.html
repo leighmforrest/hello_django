@@ -5,8 +5,8 @@
 
 {% block content %}
 <section class="flex flex-col items-center justify-center min-h-full">
-    <form method="post" class="bg-white rounded-xl p-5 w-full max-w-md shadow-xl" novalidate>
-        <h2 class="text-4xl text-center pb-5">Log In</h2>
+    <form method="post" class="bg-white rounded-xl p-5 mx-2 md:mx-0 w-full max-w-md shadow-xl" novalidate>
+        <h2 class="text-4xl text-center text-black pb-5">Log In</h2>
         {% csrf_token %}
         {% include "partials/_form.html" %}
         <a href="url" class="hover:text-blue-600">Forgot your password?</a>

@@ -26,6 +26,12 @@
             <li><a href="#" class="hover:text-gray-400">About</a></li>
             {% if user.is_authenticated %}
               <li><p>{{ user.email }}</p></li>
+              <li>
+                <form action="{% url "account_logout" %}" method="POST">
+                  {% csrf_token %}
+                  <button type="submit">Logout</button>
+                </form>
+              </li>
             {% else %}
             <li><a href="{% url "account_login" %}" class="hover:text-gray-400">Login</a></li>
             {% endif %}
@@ -33,6 +39,7 @@
       </nav>
     </header>
     <main class="flex-1 bg-blue-200">
+      {% include "partials/_message.html" %}
       {% block content %}{% endblock %}
     </main>
     <footer class="h-16 flex items-center justify-center bg-gray-800 text-white">
