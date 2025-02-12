@@ -24,6 +24,11 @@
           <ul id="nav-links" class="hidden absolute md:flex md:justify-end md:flex-row md:space-x-6 md:static top-16 p-3 left-0 w-full bg-gray-900 md:bg-transparent md:p-0 flex-col space-y-4 md:space-y-0 transition-all duration-300">
             <li><a href="{% url "hello:index" %}" class="hover:text-gray-400">Home</a></li>
             <li><a href="#" class="hover:text-gray-400">About</a></li>
+            {% if user.is_authenticated %}
+              <li><p>{{ user.email }}</p></li>
+            {% else %}
+            <li><a href="{% url "account_login" %}" class="hover:text-gray-400">Login</a></li>
+            {% endif %}
           </ul>
       </nav>
     </header>

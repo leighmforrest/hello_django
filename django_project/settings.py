@@ -32,6 +32,7 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "debug_toolbar",
+    "widget_tweaks",
 ]
 
 LOCAL_APPS = ["apps.accounts", "apps.hello"]

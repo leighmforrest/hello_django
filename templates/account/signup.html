@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}Sign Up{% endblock  %}
+
+{% block content %}
+<section class="flex flex-col items-center justify-center min-h-full bg-blue-200">
+    <form method="post" class="bg-white rounded-xl p-5 w-full max-w-md shadow-xl" novalidate>
+        <h2 class="text-4xl text-center pb-5">Sign Up</h2>
+        {% csrf_token %}
+        {% include "partials/_form.html" %}
+        <button type="submit" class="bg-blue-500 text-white p-2 mt-2 w-full rounded-lg hover:ring-2">Sign Up</button>
+    </form>
+</section>
+{% endblock  %}
