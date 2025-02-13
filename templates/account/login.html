@@ -9,7 +9,7 @@
         <h2 class="text-4xl text-center text-black pb-5">Log In</h2>
         {% csrf_token %}
         {% include "partials/_form.html" %}
-        <a href="url" class="hover:text-blue-600">Forgot your password?</a>
+        <a href="{% url "account_reset_password" %}" class="hover:text-blue-600">Forgot your password?</a>
         <button type="submit" class="bg-blue-500 text-white p-2 mt-2 w-full rounded-lg hover:ring-2">Log In</button>
     </form>
 </section>

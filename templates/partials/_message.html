@@ -1,4 +1,5 @@
 {% if messages %}
+  <section>
     {% for message in messages %}
     {% with message.tags as tag %}
     <div class="
@@ -28,4 +29,5 @@
     </div>
     {% endwith %}
     {% endfor %}
+  </section>
 {% endif %}
