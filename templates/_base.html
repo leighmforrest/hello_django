@@ -9,35 +9,7 @@
   </head>
   <body class="flex flex-col h-screen">
     <header>
-      <nav class="bg-gray-900 text-white flex items-center justify-between px-3 shadow-lg h-16 w-full">          
-          <div class="brand w-6xl">
-            <a class="text-xl font-bold" href="{% url "hello:index" %}">Hello Django</a>
-          </div>
-          <!-- Mobile Menu Button -->
-          <button id="hamburger" class="md:hidden flex flex-col focus:outline-none">
-            <span class="hamburger line-1"></span>
-            <span class="hamburger line-2"></span>
-            <span class="hamburger line-3"></span>
-          </button>
-
-          <!-- Unified Nav Links -->
-          <ul id="nav-links" class="hidden absolute md:flex md:justify-end md:flex-row md:space-x-6 md:static top-16 p-3 left-0 w-full bg-gray-900 md:bg-transparent md:p-0 flex-col space-y-4 md:space-y-0 transition-all duration-300">
-            <li><a href="{% url "hello:index" %}" class="hover:text-gray-400">Home</a></li>
-            <li><a href="#" class="hover:text-gray-400">About</a></li>
-            {% if user.is_authenticated %}
-              <li><p>{{ user.email }}</p></li>
-              <li>
-                <form action="{% url "account_logout" %}" method="POST">
-                  {% csrf_token %}
-                  <button type="submit">Logout</button>
-                </form>
-              </li>
-            {% else %}
-            <li><a href="{% url "account_login" %}" class="hover:text-gray-400">Login</a></li>
-            <li><a href="{% url "account_signup" %}" class="hover:text-gray-400">Sign Up</a></li>
-            {% endif %}
-          </ul>
-      </nav>
+      {% include "partials/_navbar.html" %}
       {% include "partials/_message.html" %}
     </header>
     <main class="flex-1 bg-blue-200 p-3">
